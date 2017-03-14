@@ -1,0 +1,37 @@
+{
+  "name": "vue-lazy-img",
+  "version": "0.0.1",
+  "description": "Lazy load images in Vue.js",
+  "main": "./dist/index.js",
+  "scripts": {
+    "build": "webpack",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nkoehring/vue-lazy-img.git"
+  },
+  "keywords": [
+    "vue",
+    "lazy-loading",
+    "image"
+  ],
+  "author": "Norman Köhring <n@koehr.in>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nkoehring/vue-lazy-img/issues"
+  },
+  "homepage": "https://github.com/nkoehring/vue-lazy-img#readme",
+  "dependencies": {
+  },
+  "devDependencies": {
+    "babel-core": "^6.0.0",
+    "babel-eslint": "^7.0.0",
+    "babel-loader": "^6.0.0",
+    "babel-plugin-transform-runtime": "^6.0.0",
+    "babel-polyfill": "^6.16.0",
+    "babel-preset-es2015": "^6.0.0",
+    "babel-preset-stage-2": "^6.0.0",
+    "webpack": "^1.14.0"
+  }
+}
