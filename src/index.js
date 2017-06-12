@@ -5,11 +5,14 @@ function bindEvent(el, type, fn) {
     el.addEventListener(type, fn, { capture: false, passive: true })
 }
 
-function success(el, path) {
+function success(el, path, css) {
   el.classList.remove('lazy-load-error')
   el.classList.remove('lazy-load-progress')
   el.classList.add('lazy-load-success')
-  el.src = path
+  if (css)
+    el.style.backgroundImage = `url('${path}')`
+  else
+    el.src = path
 }
 
 function loading(el) {
@@ -39,6 +42,16 @@ const LazyImg = {
       LazyImg.load_image(
         path,
         () => success(el, path),
+        () => failure(el)
+      )
+    }),
+    Vue.directive('lazy-load-bg', (el, binding, vnode) => {
+      const path = binding.value
+
+      loading(el)
+      LazyImg.load_image(
+        path,
+        () => success(el, path, true),
         () => failure(el)
       )
     })
