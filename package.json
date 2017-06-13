@@ -1,6 +1,6 @@
 {
   "name": "v-lazy-img",
-  "version": "0.0.1-1",
+  "version": "0.1.0",
   "description": "Lazy load images in Vue.js",
   "main": "./dist/index.js",
   "scripts": {
