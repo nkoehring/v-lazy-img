@@ -1,1 +1,63 @@
-!function(e,t){"object"==typeof exports&&"object"==typeof module?module.exports=t():"function"==typeof define&&define.amd?define("vue-stripe-elements",[],t):"object"==typeof exports?exports["vue-stripe-elements"]=t():e["vue-stripe-elements"]=t()}(this,function(){return function(e){function t(r){if(o[r])return o[r].exports;var s=o[r]={exports:{},id:r,loaded:!1};return e[r].call(s.exports,s,s.exports,t),s.loaded=!0,s.exports}var o={};return t.m=e,t.c=o,t.p="",t(0)}([function(e,t){"use strict";function o(e,t,o){e.attachEvent?e.attachEvent("on"+t,o):e.addEventListener(t,o,{capture:!1,passive:!0})}function r(e,t,o){e.classList.remove("lazy-load-error"),e.classList.remove("lazy-load-progress"),e.classList.add("lazy-load-success"),o?e.style.backgroundImage="url('"+t+"')":e.src=t}function s(e){e.classList.remove("lazy-load-error"),e.classList.remove("lazy-load-success"),e.classList.add("lazy-load-progress")}function a(e){e.classList.remove("lazy-load-success"),e.classList.remove("lazy-load-progress"),e.classList.add("lazy-load-error")}Object.defineProperty(t,"__esModule",{value:!0});var n={load_image:function(e,t,r){var s=new Image;o(s,"load",t),o(s,"error",r),s.src=e},install:function(e){e.directive("lazy-load",function(e,t,o){var l=t.value;s(e),n.load_image(l,function(){return r(e,l)},function(){return a(e)})}),e.directive("lazy-load-bg",function(e,t,o){var l=t.value;s(e),n.load_image(l,function(){return r(e,l,!0)},function(){return a(e)})})}};t.default=n}])});
+(function (global, factory) {
+  typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
+  typeof define === 'function' && define.amd ? define(factory) :
+  (global = global || self, global.VLazyImg = factory());
+}(this, function () { 'use strict';
+
+  function bindEvent(el, type, fn) {
+    if (el.attachEvent) el.attachEvent("on" + type, fn);else el.addEventListener(type, fn, {
+      capture: false,
+      passive: true
+    });
+  }
+
+  function success(el, path, css) {
+    el.classList.remove('lazy-load-error');
+    el.classList.remove('lazy-load-progress');
+    el.classList.add('lazy-load-success');
+    if (css) el.style.backgroundImage = "url('" + path + "')";else el.src = path;
+  }
+
+  function loading(el) {
+    el.classList.remove('lazy-load-error');
+    el.classList.remove('lazy-load-success');
+    el.classList.add('lazy-load-progress');
+  }
+
+  function failure(el) {
+    el.classList.remove('lazy-load-success');
+    el.classList.remove('lazy-load-progress');
+    el.classList.add('lazy-load-error');
+  }
+
+  var LazyImg = {
+    load_image: function load_image(path, success, failure) {
+      var img = new Image();
+      bindEvent(img, 'load', success);
+      bindEvent(img, 'error', failure);
+      img.src = path;
+    },
+    install: function install(Vue) {
+      Vue.directive('lazy-load', function (el, binding, vnode) {
+        var path = binding.value;
+        loading(el);
+        LazyImg.load_image(path, function () {
+          return success(el, path);
+        }, function () {
+          return failure(el);
+        });
+      }), Vue.directive('lazy-load-bg', function (el, binding, vnode) {
+        var path = binding.value;
+        loading(el);
+        LazyImg.load_image(path, function () {
+          return success(el, path, true);
+        }, function () {
+          return failure(el);
+        });
+      });
+    }
+  };
+
+  return LazyImg;
+
+}));
