@@ -1,3 +1,13 @@
 {
-  "presets": ["es2015", "stage-2"]
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "targets": {
+          "ie": 11
+        },
+        "loose": true
+      }
+    ]
+  ]
 }
