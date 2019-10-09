@@ -64,6 +64,7 @@ Additional features could include
  - srcset support
  - a loading indicator
  - Vue3 support
+ - support new `loading` attribute (https://caniuse.com/#feat=loading-lazy-attr)
 
 ## similar projects (as listed at [awesome-vue](https://github.com/vuejs/awesome-vue))
 
