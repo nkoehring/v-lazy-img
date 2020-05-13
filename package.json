@@ -1,12 +1,13 @@
 {
   "name": "v-lazy-img",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Lazy load images in Vue.js",
-  "main": "./dist/index.js",
-  "module": "./src/index.js",
+  "main": "dist/v-lazy-img.umd.js",
+  "module": "dist/v-lazy-img.esm.js",
+  "browser": "dist/v-lazy-img.umd.min.js",
+  "unpkg": "dist/v-lazy-img.umd.min.js",
   "scripts": {
-    "build": "rollup -c rollup.config.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "rollup -c"
   },
   "repository": {
     "type": "git",
@@ -18,17 +19,24 @@
     "image"
   ],
   "author": "Norman Köhring <n@koehr.in>",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/nkoehring/v-lazy-img/issues"
   },
   "homepage": "https://github.com/nkoehring/v-lazy-img#readme",
   "dependencies": {},
   "devDependencies": {
-    "@babel/core": "^7.6.2",
-    "@babel/preset-env": "^7.6.2",
-    "rollup": "^1.23.1",
-    "rollup-plugin-babel": "^4.3.3",
-    "rollup-plugin-node-resolve": "^5.2.0"
-  }
+    "@babel/core": "^7.9.6",
+    "@babel/preset-env": "^7.9.6",
+    "rollup": "^2.9.1",
+    "rollup-plugin-babel": "^4.4.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-terser": "^5.3.0",
+    "rollup-plugin-filesize": "^9.0.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
 }
