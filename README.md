@@ -1,6 +1,6 @@
 # Vue Progressive Image
 
-Lazy load images while showing a preview
+Lazy load images while showing a preview. Super tiny, less than half a kilobyte minified and gzipped.
 
 ## usage
 
@@ -78,4 +78,4 @@ Additional features could include
 
 ### So why another one?
 
-I didn't try all of the above but as mentioned under _current state_ I mainly wanted to try it by myself. The result is also incredibly small: **Under 600 bytes minimized and gzipped!**
+I didn't try all of the above but as mentioned under _current state_ I mainly wanted to try it by myself. The result is also incredibly small: **Under 500 bytes minimized and gzipped!**
